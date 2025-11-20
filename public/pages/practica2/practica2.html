@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Práctica – Programación Orientada a Objetos</title>
+
+    <!-- Fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: pink;
+            padding: 40px;
+        }
+        .reporte-container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 45px;
+            border-radius: 18px;
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.15);
+        }
+        h1, h2, h3 {
+        
+            font-weight: 600;
+        }
+        pre {
+            background: #f8f8f8;
+            border: 1px solid #e5e5e5;
+            padding: 14px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 15px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+        }
+        th {
+            background-color: #ffe2f1;
+            color: #b4005a;
+        }
+        .btn-back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            font-size: 16px;
+            font-weight: 600;
+            color: #d63384;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            z-index: 9999;
+        }
+        .btn-back:hover {
+            transform: translateY(-2px);
+            background-color: #ffe5f0;
+        }
+        code {
+            color: black !important;
+            background: none !important;
+            font-size: 1em !important;
+            padding: 0 !important;
+        }
+    </style>
+</head>
+
+<body>
+
+<a href="../../../public/index.html" class="btn-back">← Regresar</a>
+
+<div class="reporte-container">
+
+    <h1>Programación Orientada a Objetos</h1>
+
+    <p>
+        Es un paradigma de programación que utiliza "objetos" para diseñar aplicaciones y programas informáticos.
+    </p>
+
+    <h2>CONCEPTOS BÁSICOS</h2>
+
+    <h3>Clase</h3>
+    <p>
+        Una clase es una plantilla o un molde para crear objetos. Define un conjunto de atributos (datos) y métodos
+        (funciones) que los objetos de esa clase tendrán. Por sí misma, una clase no ocupa memoria; es solo la definición.
+    </p>
+
+    <pre><code>class MemoryManager 
+{
+public:
+
+    static MemoryManager& getInstance();
+    MemoryManager(const MemoryManager&) = delete;
+    void operator=(const MemoryManager&) = delete;
+    void trackHeapAllocation(void* ptr, size_t size);
+    void trackHeapDeallocation(void* ptr);
+    void trackStackAllocation();
+    void trackStackDeallocation();
+    void displayUsage() const;
+
+private:
+
+    MemoryManager() = default;
+    ~MemoryManager() = default;
+
+    size_t m_heap_allocations = 0;
+    size_t m_heap_deallocations = 0;
+    size_t m_stack_allocations = 0;
+    size_t m_stack_deallocations = 0;
+    
+    std::map&lt;void*, size_t&gt; m_heap_records;
+};
+    </code></pre>
+
+    <h3>Objeto</h3>
+    <p>
+        Un objeto es una instancia de una clase. Es una entidad concreta que tiene un estado (sus atributos) y un
+        comportamiento (sus métodos). Cuando se crea un objeto a partir de una clase, se reserva memoria para él.
+    </p>
+
+    <pre><code>MemoryManager& MemoryManager::getInstance() {
+    static MemoryManager instance;   
+    return instance;
+}
+    </code></pre>
+
+    <h3>Herencia</h3>
+    <p>
+        La herencia es un mecanismo que permite a una nueva clase (llamada clase hija o subclase) heredar atributos y
+        métodos de una clase existente (llamada clase padre o superclase). Esto promueve la reutilización de código.
+    </p>
+
+    <pre><code>class DebugMemoryManager : public MemoryManager {
+public:
+    void logToFile();
+};
+    </code></pre>
+
+    <h3>Encapsulamiento</h3>
+    <p>
+        El encapsulamiento consiste en agrupar datos (atributos) y los métodos que operan sobre esos datos dentro de una
+        misma unidad (la clase). También implica restringir el acceso directo a algunos de los componentes de un objeto.
+    </p>
+
+    <pre><code>private:
+    size_t m_heap_allocations = 0;
+    std::map&lt;void*, size_t&gt; m_heap_records;
+    </code></pre>
+
+    <h3>Abstracción</h3>
+    <p>
+        La abstracción consiste en ocultar los detalles complejos y mostrar solo la funcionalidad esencial.
+    </p>
+
+    <pre><code>class DebugMemoryManager : public MemoryManager {
+public:
+    void logToFile();
+};
+    </code></pre>
+
+    <h3>Polimorfismo</h3>
+    <p>
+        Permite que objetos de diferentes clases respondan al mismo mensaje de maneras específicas.
+    </p>
+
+    <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+class Complex {
+public:
+    int real, imag;
+    
+    Complex(int r, int i) :
+    real(r), imag(i) {}
+
+    // Overloading the '+' operator
+    Complex operator+(const Complex& obj) {
+        return Complex(real + obj.real,
+        imag + obj.imag);
+    }
+};
+
+int main() {
+    Complex c1(10, 5), c2(2, 4);
+    
+    Complex c3 = c1 + c2;  
+    cout << c3.real << " + i" << c3.imag;
+    return 0;
+}
+    </code></pre>
+
+    <h2>LENGUAJE C VS PYTHON</h2>
+
+    <table>
+        <tr>
+            <th>Característica</th>
+            <th>C++</th>
+            <th>Python</th>
+        </tr>
+        <tr>
+            <td>Paradigma</td>
+            <td>Multiparadigma: soporta programación estructurada, POO y genérica</td>
+            <td>Multiparadigma: POO, estructurada y funcional</td>
+        </tr>
+        <tr>
+            <td>Definición de clases</td>
+            <td>Uso de <code>class</code>, atributos explícitos</td>
+            <td>Uso de <code>class</code>, definición directa</td>
+        </tr>
+        <tr>
+            <td>Tipado</td>
+            <td>Estático</td>
+            <td>Dinámico</td>
+        </tr>
+        <tr>
+            <td>Encapsulamiento</td>
+            <td>Modificadores public/private/protected</td>
+            <td>Convención _ y __</td>
+        </tr>
+        <tr>
+            <td>Constructores</td>
+            <td>Mismo nombre que la clase</td>
+            <td><code>__init__</code></td>
+        </tr>
+        <tr>
+            <td>Herencia</td>
+            <td><code>class Hija : public Padre</code></td>
+            <td><code>class Hija(Padre)</code></td>
+        </tr>
+        <tr>
+            <td>Polimorfismo</td>
+            <td>Funciones virtuales, operadores, plantillas</td>
+            <td>Polimorfismo dinámico</td>
+        </tr>
+        <tr>
+            <td>Gestión de memoria</td>
+            <td>Manual o smart pointers</td>
+            <td>Automática (GC)</td>
+        </tr>
+        <tr>
+            <td>Singleton</td>
+            <td>Implementación manual</td>
+            <td>Simple con módulos</td>
+        </tr>
+        <tr>
+            <td>Sintaxis</td>
+            <td>Estrica y detallada</td>
+            <td>Simple y legible</td>
+        </tr>
+    </table>
+
+    <h2>CONCLUSIÓN</h2>
+
+    <p>
+        Ventajas de la Programación Orientada a Objetos:
+        <br><br>
+        • Modularidad: facilita comprensión y mantenimiento. <br>
+        • Encapsulamiento: protege datos internos. <br>
+        • Abstracción: oculta detalles complejos. <br>
+        • Reutilización mediante herencia. <br>
+        • Polimorfismo: comportamientos flexibles según el objeto. <br>
+        • Mantenibilidad y escalabilidad del software.
+    </p>
+
+    <h2>Link al repositorio</h2>
+<p><a href="https://github.com/sofiaadanielss/Sofia-sPortafolio/tree/main/practica2" target="_blank">Link al repositorio 2</a></p>
+
+</div>
+
+</body>
+</html>

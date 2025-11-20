@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Práctica 1 – Elementos de Lenguajes de Programación</title>
+
+    <!-- Fuente (igual que tu portafolio) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap (opcional si lo usas en tu sitio) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Tu CSS -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <style>
+        /* Para que el contenido se vea bonito */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fafafa;
+            padding: 40px;
+            background-color: pink;
+        }
+        .reporte-container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 16px rgba(0,0,0,0.1);
+        }
+        pre {
+            background: #f3f3f3;
+            padding: 12px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        blockquote {
+            padding: 10px 20px;
+            background: #f7f7f7;
+            border-left: 5px solid #7b3fe4;
+            margin: 20px 0;
+        }
+        .btn-back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            font-size: 16px;
+            font-weight: 600;
+            color: #d63384; /* Rosita UABC style */
+            text-decoration: none;
+            transition: all 0.2s ease;
+            z-index: 9999;
+        }
+
+        .btn-back:hover {
+            transform: translateY(-2px);
+            background-color: #ffe5f0;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../../../public/index.html" class="btn-back">
+        ← Regresar
+    </a>
+    <div class="reporte-container">
+
+        <h1>Práctica 1: Elementos de Lenguajes de Programación</h1>
+        <h3>Danna Sofia Daniels – 378829</h3><br>
+
+
+        <h2>INTRODUCCION</h2>
+
+        <h3>OBJETIVO</h3>
+
+        <p>
+        El objetivo de esta práctica es identificar los elementos fundamentales de los lenguajes de programación:
+        nombres, marcos de activación, bloques de alcance, administración de memoria, expresiones, comandos, control de secuencia como lo es selección, iteración y recursión, subprogramas y tipos de datos.
+        </p>
+
+        <h2>Elementos fundamentales de los lenguajes de programación</h2>
+
+        <h3>Nombres</h3>
+        <p>Son los nombres que se dan a variables, funciones, clases y elementos del código.</p>
+        <pre><code>int bookID, memberID;
+        </code></pre>
+
+        <h3>Marcos de activación</h3>
+        <p>Estructuras dinámicas creadas al llamar funciones. Guardan parámetros, variables locales y retorno.</p>
+        <pre><code>member_t *new_member = (member_t *)malloc(sizeof(member_t));
+        </code></pre>
+
+        <h3>Bloques de alcance</h3>
+        <p>Definen dónde es válido un nombre. Puede ser global o local.</p>
+        <pre><code>static int static_var = 0; // global
+
+        void issueBook(book_t *library, member_t *members)
+        {
+            int bookID, memberID; // local
+        }
+        </code></pre>
+
+        <h3>Administración de memoria</h3>
+        <pre><code>// asignar memoria
+        member_t *new_member = (member_t *)malloc(sizeof(member_t));
+        // liberar
+        free(new_member);
+        new_member = NULL;
+        </code></pre>
+
+        <h3>Expresiones</h3>
+        <pre><code>memberFound->issued_count++;
+        </code></pre>
+
+        <h3>Comandos</h3>
+        <pre><code>static int static_var = 0;
+        </code></pre>
+
+        <h3>Control de secuencia</h3>
+        <p>Incluye selección, iteración, recursión, subprogramas y tipos de datos.</p>
+
+        <pre><code>while (current_book) {
+            if (current_book->id == bookID && current_book->quantity > 0) {
+                bookFound = current_book;
+                break;
+            }
+            current_book = current_book->next;
+        }
+        </code></pre>
+
+        <h2>Selección</h2>
+        <pre><code>if (bookFound && memberFound) {
+            bookFound->quantity--;
+            memberFound->issued_count++;
+        } else {
+            printf("\nLibro o miembro no encontrados.\n");
+        }
+        </code></pre>
+
+        <h2>Iteración y Recursión</h2>
+
+        <h3>Iteración</h3>
+        <pre><code>for (int i = 0; i < memberFound->issued_count; i++) {
+            if (memberFound->issued_books[i] == bookID) {
+                found = 1;
+                break;
+            }
+        }
+        </code></pre>
+
+        <h3>Recursión</h3>
+        <pre><code>void displayBooksRecursive(book_t *library) {
+            if (!library) return;
+            printf("%s", library->title);
+            displayBooksRecursive(library->next);
+        }
+        </code></pre>
+
+        <h2>Subprogramas</h2>
+        <pre><code>void addBook(book_t **library, int* count ) {
+            ...
+        }
+        </code></pre>
+
+        <h2>Tipos de datos</h2>
+        <pre><code>typedef struct _book {
+            int id;
+            char title[100];
+            char author[100];
+            int publication_year;
+            genre_t genre;
+            int quantity;
+            struct _book *next;
+        } book_t;
+        </code></pre>
+
+        <h2>Referencias</h2>
+        <p>Incluye todas las citas de tu archivo original.</p>
+
+        <h2>Link al repositorio</h2>
+        <p><a href="https://github.com/sofiaadanielss/Sofia-sPortafolio/tree/main/practica1" target="_blank">Link al repositorio 1</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Práctica 1 – Elementos de Lenguajes de Programación</title>
+
+    <!-- Fuente (igual que tu portafolio) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap (opcional si lo usas en tu sitio) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Tu CSS -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <style>
+        /* Para que el contenido se vea bonito */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fafafa;
+            padding: 40px;
+            background-color: pink;
+        }
+        .reporte-container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 16px rgba(0,0,0,0.1);
+        }
+        pre {
+            background: #f3f3f3;
+            padding: 12px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        blockquote {
+            padding: 10px 20px;
+            background: #f7f7f7;
+            border-left: 5px solid #7b3fe4;
+            margin: 20px 0;
+        }
+                .btn-back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            font-size: 16px;
+            font-weight: 600;
+            color: #d63384; /* Rosita UABC style */
+            text-decoration: none;
+            transition: all 0.2s ease;
+            z-index: 9999;
+        }
+
+        .btn-back:hover {
+            transform: translateY(-2px);
+            background-color: #ffe5f0;
+        }
+
+    </style>
+</head>
+<body>
+    <a href="../../../public/index.html" class="btn-back">
+        ← Regresar
+    </a>
+
+<div body class="reporte-container">
+
+<h1>Práctica 0: Reporte de practica Markdown Git Github y Hugo</h1>
+<h3>Danna Sofia Daniels – 378829</h3><br>
+
+<h2>Markdown</h2>
+
+<p>Markdown es un lenguaje de marcado ligero creado por John Gruber que permite formatear texto de manera sencilla usando sintaxis simple. Se convierte a HTML válido y es ampliamente usado en documentación, foros y plataformas como GitHub.</p>
+
+<p><strong>Sintaxis básica para dar formato</strong></p>
+
+<p><strong>Encabezados:</strong><br>
+Usa # para crear títulos. El número de # indica el nivel del título.</p>
+
+<h1>Título de nivel 1</h1>
+<h2>Título de nivel 2</h2>
+
+<p><strong>Texto básico:</strong><br>
+Para negrita, envuelve el texto con dos asteriscos o guiones bajos (<strong>texto negrita</strong> o <strong>texto negrita</strong>).<br>
+Para cursiva, envuelve el texto con un asterisco o guión bajo (<em>texto cursiva</em> o <em>texto cursiva</em>).</p>
+
+<p><strong>Listas:</strong><br>
+Para listas numeradas, comienza cada línea con un número y un punto (1., 2., etc.).<br>
+Para listas con viñetas, usa un asterisco, guión o signo de más (*, -, o +) al inicio de cada línea.</p>
+
+<p><strong>Vínculos:</strong><br>
+La sintaxis es: <code>[Texto](enlace)</code></p>
+
+<p><strong>Bloques de código:</strong><br>
+Puedes incluir código en línea con comillas invertidas (<code>`</code>). Para bloques de código más grandes, usa tres comillas invertidas (<code>```</code>).</p>
+
+<p><strong>Tablas:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Columna 1</th>
+      <th>Columna 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dato 1</td>
+      <td>Dato 2</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Citas:</strong></p>
+
+<blockquote>
+  Esta es una cita
+</blockquote>
+
+<h3>Casos de uso</h3>
+
+<p><strong>Documentación y notas:</strong><br>
+Es ideal para escribir documentación técnica, notas y apuntes de manera rápida y organizada.</p>
+
+<p><strong>Blogs y sitios web:</strong><br>
+Muchos servicios como los sistemas de gestión de contenido (CMS) y los foros soportan Markdown para facilitar la creación de publicaciones.</p>
+
+<p><strong>Escritura general:</strong><br>
+Puedes usarlo para crear listas de elementos, escribir correos electrónicos, o incluso para redactar libros o capítulos de libros.</p>
+
+<p><strong>Plataformas de desarrollo:</strong><br>
+En el mundo de la programación se usa ampliamente en repositorios como GitHub y para la escritura de documentación.</p>
+
+<p><strong>Editores y herramientas:</strong><br>
+Es compatible con muchas aplicaciones: Google Docs, Trello, editores de texto, etc.</p>
+
+
+<h1>Uso de Git y GitHub</h1>
+
+<h2>Git</h2>
+
+<p>Git es un sistema de control de versiones que realiza un seguimiento de los cambios en los archivos. Es especialmente útil cuando varias personas trabajan en los mismos archivos.</p>
+
+<p>Flujo de trabajo típico:</p>
+<ul>
+  <li>Crear una rama desde la copia principal.</li>
+  <li>Modificar archivos de manera independiente.</li>
+  <li>Fusionar cambios mediante combinación (merge).</li>
+  <li>Git sigue los cambios y permite mantener la versión más actualizada.</li>
+</ul>
+
+<h2>GitHub</h2>
+
+<p>GitHub es una plataforma en la nube para almacenar, compartir y colaborar en código.</p>
+
+<p>Permite:</p>
+<ul>
+  <li>Presentar y compartir proyectos.</li>
+  <li>Administrar cambios en el código.</li>
+  <li>Recibir sugerencias y revisiones de colaboradores.</li>
+  <li>Trabajar en equipo mediante ramas y solicitudes de cambio.</li>
+</ul>
+
+<h2>¿Cómo funcionan Git y GitHub juntos?</h2>
+
+<p>Al cargar archivos, GitHub los guarda como un repositorio de Git. Cada cambio genera un commit, y puedes trabajar localmente sincronizándolo con el repositorio remoto.</p>
+
+<p>Proceso colaborativo:</p>
+<ul>
+  <li>Extraer cambios recientes del repositorio remoto.</li>
+  <li>Insertar tus propios cambios al repositorio remoto.</li>
+  <li>Git combina los cambios inteligentemente.</li>
+  <li>GitHub facilita el proceso mediante Pull Requests.</li>
+</ul>
+
+<h2>Crear un repositorio en GitHub (remoto)</h2>
+
+<ol>
+  <li>Haz clic en "+" → Nuevo repositorio.</li>
+  <li>Escribe nombre, descripción, visibilidad.</li>
+  <li>Puedes incluir un README opcional.</li>
+  <li>Haz clic en "Crear repositorio".</li>
+</ol>
+
+<h1>Crear un repositorio local con Git</h1>
+
+<p>Para crear un repositorio en tu computadora:</p>
+
+<ol>
+  <li>Abrir terminal y navegar a la carpeta del proyecto.</li>
+  <li>Ejecutar: <code>git init</code></li>
+  <li>Añadir repositorio remoto: <code>git remote add origin &lt;URL&gt;</code></li>
+  <li>Subir cambios: <code>git add .</code>, <code>git commit -m ""</code>, <code>git push -u origin main</code></li>
+</ol>
+
+<h2>¿Qué es Hugo?</h2>
+
+<p>Hugo es un generador de sitios estáticos escrito en Go. Permite crear sitios web mediante plantillas y contenido en Markdown.</p>
+
+<h2>¿Qué son GitHub Actions?</h2>
+
+<p>Es una plataforma de CI/CD que automatiza procesos dentro de GitHub, como despliegues automáticos.</p>
+
+<h2>Crear sitio con Hugo</h2>
+
+<p><strong>Instalación (Git Bash)</strong></p>
+
+<pre><code>curl -LO https://github.com/gohugoio/hugo/releases/download/v0.111.3/hugo_0.111.3_Linux-64bit.tar.gz
+tar -xzf hugo_0.111.3_Linux-64bit.tar.gz
+sudo mv hugo /usr/local/bin/
+
+hugo new site mi-sitio
+cd mi-sitio
+</code></pre>
+
+<p><strong>Añadir tema</strong></p>
+
+<pre><code>git init
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
+echo 'theme = "ananke"' >> config.toml
+</code></pre>
+
+<p><strong>Crear contenido</strong></p>
+
+<pre><code>hugo new posts/mi-primer-post.md
+</code></pre>
+
+<h3>Configuración de GitHub Actions para desplegar Hugo</h3>
+
+<pre><code>name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+          
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          
+      - name: Build
+        run: hugo --minify
+        
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+</code></pre>
+
+<h2>Enlaces de Mi Portafolio</h2>
+
+<p><a href="https://github.com/sofiaadanielss/portafolio" target="_blank">Repositorio en GitHub</a></p>
+<p><a href="https://sofiaadanielss.github.io/portafolio" target="_blank">Sitio en GitHub Pages</a></p>
+<h2>Link al repositorio</h2>
+<p><a href="https://github.com/sofiaadanielss/Sofia-sPortafolio/tree/main/practica0" target="_blank">Link al repositorio 0</a></p>
+
+</div>
